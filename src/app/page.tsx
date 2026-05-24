@@ -10,6 +10,7 @@ import Certifications from "@/components/sections/Certifications";
 import Education from "@/components/sections/Education";
 import Achievements from "@/components/sections/Achievements";
 import Contact from "@/components/sections/Contact";
+import Chatbot from "@/components/ui/Chatbot";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         
         <div id="contact" className="bg-midnight relative z-10"><Contact /></div>
       </main>
+      <Chatbot />
     </ClientWrapper>
   );
 }
