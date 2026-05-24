@@ -1,7 +1,7 @@
 # 🚀 Cinematic AI Engineering Portfolio
 
 <div align="center">
-  <video src="./public/video.mp4" controls="controls" muted="muted" playsinline="playsinline" width="100%"></video>
+  <video src="https://github.com/jiyajahnavi/AI-Portfolio/raw/main/public/video.mp4" controls="controls" muted="muted" playsinline="playsinline" width="100%"></video>
   <br />
   <i>Cinematic AI Engineering Portfolio Preview</i>
 </div>
@@ -36,9 +36,9 @@ graph TD
     end
 
     subgraph "Backend AI Layer"
-        ChatUI -->|POST /api/chat| APIRoute[Next.js API Route]
-        APIRoute -->|System Instruction + Context| GeminiSDK[@google/genai SDK]
-        GeminiSDK -->|Generate Response| GeminiAPI[Google Gemini 2.5 Flash]
+        ChatUI -->|POST /api/chat| APIRoute["Next.js API Route"]
+        APIRoute -->|System Instruction + Context| GeminiSDK["@google/genai SDK"]
+        GeminiSDK -->|Generate Response| GeminiAPI["Google Gemini 2.5 Flash"]
     end
     
     style User fill:#f5e6d3,stroke:#333,stroke-width:2px,color:#0a0a0a

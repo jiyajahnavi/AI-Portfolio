@@ -263,7 +263,8 @@ export default function Projects() {
                 {/* Page Shadow for 3D realism */}
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/40 to-transparent w-8 hidden lg:block" />
 
-                {activeData.type === "project" ? (
+                {/* Page Shadow for 3D realism */}
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/40 to-transparent w-8 hidden lg:block" />
                   <div className="max-w-xl mx-auto h-full flex flex-col justify-center">
                     <div className="hidden lg:inline-block text-xs font-mono text-primary uppercase tracking-widest mb-6 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full w-fit">
                       {activeData.category}
@@ -310,13 +311,6 @@ export default function Projects() {
                        </a>
                     </div>
                   </div>
-                ) : (
-                  <div className="flex flex-col gap-6 text-gray-400 font-light text-base lg:text-xl max-w-xl mx-auto h-full justify-center">
-                    {activeData.subtitle.split("•").map((line, i) => (
-                      <span key={i} className="block pl-4 border-l-2 border-secondary/50">{line.trim()}</span>
-                    ))}
-                  </div>
-                )}
               </motion.div>
 
             </motion.div>
