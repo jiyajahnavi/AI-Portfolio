@@ -1,7 +1,10 @@
 # 🚀 Cinematic AI Engineering Portfolio
 
-![Portfolio Preview](./public/preview.png)
-*(Place a screenshot or GIF of your portfolio in the `public` folder named `preview.png`)*
+<div align="center">
+  <video src="./public/video.mp4" controls="controls" muted="muted" playsinline="playsinline" width="100%"></video>
+  <br />
+  <i>Cinematic AI Engineering Portfolio Preview</i>
+</div>
 
 > A premium, futuristic, and immersive web experience designed specifically for AI Systems Engineers, Machine Learning Developers, and Generative AI Enthusiasts.
 
@@ -11,7 +14,36 @@ This portfolio steps away from traditional grids and flat designs, embracing a *
 
 ## 🌌 System Architecture & Tech Stack
 
-This project is built on a modern, high-performance web stack optimized for rapid interactions and heavy animation logic:
+This project is built on a modern, high-performance web stack optimized for rapid interactions and heavy animation logic.
+
+### Website Architecture
+
+```mermaid
+graph TD
+    User([Client / User Browser]) --> |Smooth Scroll / Interact| UI[Next.js 16 UI]
+    
+    subgraph "Frontend Layer (React + Next.js)"
+        UI --> Hero[HUD Hero - GSAP Parallax]
+        UI --> Projects[3D Spine Flipbook]
+        UI --> Timelines[Vertical Glow Timelines]
+        UI --> ChatUI[Floating Chatbot UI]
+    end
+    
+    subgraph "Animation & Physics Engine"
+        Hero -.-> GSAP[GSAP & Lenis Engine]
+        Projects -.-> Framer[Framer Motion 3D]
+        Timelines -.-> Framer
+    end
+
+    subgraph "Backend AI Layer"
+        ChatUI -->|POST /api/chat| APIRoute[Next.js API Route]
+        APIRoute -->|System Instruction + Context| GeminiSDK[@google/genai SDK]
+        GeminiSDK -->|Generate Response| GeminiAPI[Google Gemini 2.5 Flash]
+    end
+    
+    style User fill:#f5e6d3,stroke:#333,stroke-width:2px,color:#0a0a0a
+    style GeminiAPI fill:#8b5a2b,stroke:#f5e6d3,stroke-width:2px
+```
 
 - **Framework:** Next.js 16.2.6 (App Router + Turbopack)
 - **Styling:** Tailwind CSS (with complex `glassmorphism` and custom gradient overlays)
