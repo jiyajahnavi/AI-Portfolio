@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
@@ -8,7 +9,19 @@ import { Briefcase, Network, Database, LayoutTemplate, GitMerge, BrainCircuit, L
 
 gsap.registerPlugin(ScrollTrigger);
 
-const EXPERIENCE = [
+type ExperienceData = {
+  role: string;
+  company: string;
+  duration: string;
+  category: string;
+  icon: React.ReactNode;
+  description: string;
+  highlights: string[];
+  tech: string[];
+  panels?: string[];
+};
+
+const EXPERIENCE: ExperienceData[] = [
   {
     role: "AI Intern",
     company: "Infosys",
