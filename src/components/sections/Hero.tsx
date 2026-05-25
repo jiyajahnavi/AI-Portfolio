@@ -14,19 +14,23 @@ export default function Hero() {
   const [isMuted, setIsMuted] = useState(true);
   
   useEffect(() => {
-    // Parallax effect on scroll
-    if (containerRef.current) {
-      gsap.to(".hero-video", {
-        yPercent: 30,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true
-        }
-      });
-    }
+    let mm = gsap.matchMedia();
+    
+    // Parallax effect on scroll only for desktop to prevent video lag on mobile
+    mm.add("(min-width: 768px)", () => {
+      if (containerRef.current) {
+        gsap.to(".hero-video-wrapper", {
+          yPercent: 30,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+      }
+    });
 
     // Listen for the custom event from the LoadingScreen button click
     // Because this fires synchronously with a user gesture, the browser allows unmuted playback!
@@ -42,6 +46,7 @@ export default function Hero() {
     window.addEventListener('play-hero-video', handlePlayVideo);
     
     return () => {
+      mm.revert();
       window.removeEventListener('play-hero-video', handlePlayVideo);
     };
   }, []);
@@ -61,16 +66,19 @@ export default function Hero() {
   return (
     <section ref={containerRef} className="relative h-screen w-full flex items-end justify-center overflow-hidden pb-32">
       {/* Background Video */}
-      <div className="absolute inset-0 z-0 bg-midnight">
+      <div className="absolute inset-0 z-0 bg-midnight hero-video-wrapper transform-gpu">
         <video
           ref={videoRef}
-          className="hero-video absolute inset-0 w-full h-full object-cover opacity-60 scale-105"
+          className="absolute inset-0 w-full h-full object-cover opacity-60 scale-105 transform-gpu will-change-transform"
           src="/video.mp4"
           muted={isMuted}
           playsInline
+          loop
+          preload="auto"
+          disablePictureInPicture
         />
         {/* Dark overlay with noise - adjusted to be darker at bottom for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-transparent z-10 pointer-events-none" />
       </div>
 
       {/* Content - Positioned lower to not cover the video */}

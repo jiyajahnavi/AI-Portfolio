@@ -1,9 +1,11 @@
 # 🚀 Cinematic AI Engineering Portfolio
 
 <div align="center">
-  <video src="https://github.com/jiyajahnavi/AI-Portfolio/raw/main/public/video.mp4" controls="controls" muted="muted" playsinline="playsinline" width="100%"></video>
+  <a href="https://github.com/jiyajahnavi/AI-Portfolio/raw/main/public/video.mp4">
+    <img src="https://github.com/jiyajahnavi/AI-Portfolio/preview.png" alt="Portfolio Preview" width="100%" />
+  </a>
   <br />
-  <i>Cinematic AI Engineering Portfolio Preview</i>
+  <i>Click the image above to watch the Cinematic AI Engineering Portfolio Preview</i>
 </div>
 
 > A premium, futuristic, and immersive web experience designed specifically for AI Systems Engineers, Machine Learning Developers, and Generative AI Enthusiasts.
