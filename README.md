@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://github.com/jiyajahnavi/AI-Portfolio/raw/main/public/video.mp4">
-    <img src="https://github.com/jiyajahnavi/AI-Portfolio/preview.png" alt="Portfolio Preview" width="100%" />
+    <img src="https://github.com/jiyajahnavi/AI-Portfolio/blob/main/preview.png" alt="Portfolio Preview" width="100%" />
   </a>
   <br />
   <i>Click the image above to watch the Cinematic AI Engineering Portfolio Preview</i>
