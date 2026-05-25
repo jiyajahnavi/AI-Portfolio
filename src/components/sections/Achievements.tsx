@@ -5,7 +5,7 @@ import { Terminal, Code, Trophy, Crown, Palette, ShieldAlert, Users, Target, Zap
 
 export default function Achievements() {
   return (
-    <section className="py-32 px-4 md:px-6 w-full min-h-screen relative overflow-hidden bg-midnight">
+    <section className="py-20 md:py-32 px-4 md:px-6 w-full min-h-screen relative overflow-hidden bg-midnight">
       
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -17,7 +17,7 @@ export default function Achievements() {
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Header */}
-        <div className="mb-32 text-center">
+        <div className="mb-20 md:mb-32 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -38,7 +38,7 @@ export default function Achievements() {
         </div>
 
         {/* Section 1: Competitive Programming */}
-        <div className="mb-40">
+        <div className="mb-20 md:mb-40">
           <motion.h3 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -56,7 +56,7 @@ export default function Achievements() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               whileHover={{ y: -5 }}
-              className="glass p-8 rounded-3xl border border-white/10 hover:border-primary/40 transition-all duration-300 relative overflow-hidden group col-span-1 md:col-span-2"
+              className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-primary/40 transition-all duration-300 relative overflow-hidden group col-span-1 md:col-span-2"
             >
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Code className="w-32 h-32 text-primary" />
@@ -119,7 +119,7 @@ export default function Achievements() {
         </div>
 
         {/* Section 2: Chess */}
-        <div className="mb-40">
+        <div className="mb-20 md:mb-40">
           <motion.h3 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -137,7 +137,7 @@ export default function Achievements() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="glass p-10 md:p-16 rounded-[3rem] border border-secondary/20 relative z-10 overflow-hidden group"
+              className="glass p-6 md:p-10 lg:p-16 rounded-[3rem] border border-secondary/20 relative z-10 overflow-hidden group"
             >
               <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-secondary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
               
@@ -166,7 +166,7 @@ export default function Achievements() {
         </div>
 
         {/* Grid for Creativity & Discipline */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-40">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 md:mb-40">
           
           {/* Section 3: Creativity */}
           <div>
@@ -184,7 +184,7 @@ export default function Achievements() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="glass h-full p-8 rounded-3xl border border-white/10 hover:border-primary/30 transition-all duration-300 relative overflow-hidden group"
+              className="glass h-full p-6 md:p-8 rounded-3xl border border-white/10 hover:border-primary/30 transition-all duration-300 relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <h4 className="text-2xl font-bold text-white mb-2">District-Level Winner</h4>
@@ -220,7 +220,7 @@ export default function Achievements() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="glass h-full p-8 rounded-3xl border border-white/10 hover:border-secondary/30 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between"
+              className="glass h-full p-6 md:p-8 rounded-3xl border border-white/10 hover:border-secondary/30 transition-all duration-300 relative overflow-hidden group flex flex-col justify-between"
             >
               <div>
                 <h4 className="text-2xl font-bold text-white mb-2">District-Level Winner</h4>
@@ -245,7 +245,7 @@ export default function Achievements() {
         </div>
 
         {/* Section 5: Leadership */}
-        <div className="mb-40">
+        <div className="mb-20 md:mb-40">
           <motion.h3 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -281,7 +281,7 @@ export default function Achievements() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="glass p-8 rounded-3xl border border-white/10 hover:border-primary/30 transition-colors text-center flex flex-col items-center"
+                className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-primary/30 transition-colors text-center flex flex-col items-center"
               >
                 <div className="p-4 bg-midnight/50 rounded-2xl border border-white/5 mb-6">
                   {item.icon}

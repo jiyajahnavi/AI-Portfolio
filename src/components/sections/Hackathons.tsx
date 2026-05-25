@@ -73,7 +73,7 @@ export default function Hackathons() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-32 px-6 max-w-7xl mx-auto min-h-screen relative z-10">
+    <section ref={containerRef} className="py-20 md:py-32 px-4 md:px-6 max-w-7xl mx-auto min-h-screen relative z-10">
       
       {/* Background Animated Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -102,7 +102,7 @@ export default function Hackathons() {
         </div>
 
         {/* Featured Timeline */}
-        <div className="mb-32">
+        <div className="mb-16 md:mb-32">
           <h3 className="text-2xl font-bold text-white mb-12 flex items-center gap-3">
             <Trophy className="text-secondary w-6 h-6" /> Featured Achievements
           </h3>
@@ -124,7 +124,7 @@ export default function Hackathons() {
                 <div className="absolute -left-[41px] md:-left-[73px] top-6 w-5 h-5 rounded-full bg-midnight border-2 border-primary group-hover:bg-primary group-hover:shadow-[0_0_15px_rgba(245,230,211,0.5)] transition-all duration-300" />
                 
                 {/* Holographic Card */}
-                <div className="glass p-8 rounded-3xl border border-white/10 group-hover:border-primary/40 group-hover:bg-white/[0.04] transition-all duration-500 relative overflow-hidden">
+                <div className="glass p-6 md:p-8 rounded-3xl border border-white/10 group-hover:border-primary/40 group-hover:bg-white/[0.04] transition-all duration-500 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
                   <div className="flex flex-col md:flex-row md:items-start gap-6 relative z-10">
@@ -166,7 +166,7 @@ export default function Hackathons() {
         </div>
 
         {/* Participation Grid */}
-        <div className="mb-32">
+        <div className="mb-16 md:mb-32">
           <h3 className="text-2xl font-bold text-white mb-12 flex items-center gap-3">
             <Users className="text-primary w-6 h-6" /> Engineering Arenas
           </h3>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, BrainCircuit, Database, CheckCircle2, ShieldCheck, Network, Cpu } from "lucide-react";
+import { Award, BrainCircuit, Database, CheckCircle2, ShieldCheck, Network, Cpu, ExternalLink } from "lucide-react";
 
 const AI_CERTIFICATIONS = [
   {
@@ -10,6 +10,7 @@ const AI_CERTIFICATIONS = [
     category: "AI Systems",
     description: "Explored AI systems thinking, generative AI foundations, and practical AI fluency concepts.",
     tags: ["AI Systems", "LLMs", "Reasoning", "GenAI"],
+    link: "#",
     icon: <BrainCircuit className="w-6 h-6 text-primary" />
   },
   {
@@ -18,6 +19,7 @@ const AI_CERTIFICATIONS = [
     category: "GenAI",
     description: "Deep dive into generative models, architectures, and real-world implementations.",
     tags: ["Generative AI", "LLMs", "Prompt Engineering", "AI Applications"],
+    link: "#",
     icon: <Network className="w-6 h-6 text-secondary" />
   },
   {
@@ -26,6 +28,7 @@ const AI_CERTIFICATIONS = [
     category: "GenAI",
     description: "Mastered prompt design and interaction strategies for large language models.",
     tags: ["Prompt Design", "LLMs", "AI Interaction", "GenAI"],
+    link: "#",
     icon: <Cpu className="w-6 h-6 text-primary" />
   },
   {
@@ -34,6 +37,7 @@ const AI_CERTIFICATIONS = [
     category: "Vision",
     description: "Comprehensive study of image processing, CNNs, and deep learning for vision.",
     tags: ["Computer Vision", "CNNs", "Image Processing", "Deep Learning"],
+    link: "#",
     icon: <ShieldCheck className="w-6 h-6 text-secondary" />
   },
   {
@@ -42,6 +46,7 @@ const AI_CERTIFICATIONS = [
     category: "MLOps",
     description: "End-to-end machine learning pipeline creation, training, and production deployment.",
     tags: ["Machine Learning", "Deployment", "Model Training", "Production Systems"],
+    link: "#",
     icon: <CheckCircle2 className="w-6 h-6 text-primary" />
   },
   {
@@ -50,6 +55,7 @@ const AI_CERTIFICATIONS = [
     category: "Data Science",
     description: "Foundational data science and machine learning concepts and Python programming.",
     tags: ["Machine Learning", "Data Science", "Python", "ML Systems"],
+    link: "#",
     icon: <Award className="w-6 h-6 text-secondary" />
   },
   {
@@ -58,6 +64,7 @@ const AI_CERTIFICATIONS = [
     category: "AI/ML",
     description: "Core artificial intelligence and machine learning principles using Python.",
     tags: ["AI", "ML Foundations", "Python"],
+    link: "#",
     icon: <BrainCircuit className="w-6 h-6 text-primary" />
   },
   {
@@ -66,6 +73,7 @@ const AI_CERTIFICATIONS = [
     category: "Database Engineering",
     description: "Advanced querying, database systems architecture, and query optimization.",
     tags: ["SQL", "Database Systems", "Query Optimization", "Data Engineering"],
+    link: "#",
     icon: <Database className="w-6 h-6 text-secondary" />
   }
 ];
@@ -75,7 +83,7 @@ const AI_CERTIFICATIONS = [
 
 export default function Certifications() {
   return (
-    <section className="py-32 px-6 max-w-7xl mx-auto min-h-screen relative z-10 overflow-hidden">
+    <section className="py-20 md:py-32 px-4 md:px-6 max-w-7xl mx-auto min-h-screen relative z-10 overflow-hidden">
       
       {/* Background Neural Network Mesh */}
       <div className="absolute inset-0 pointer-events-none z-0 opacity-20">
@@ -85,7 +93,7 @@ export default function Certifications() {
 
       <div className="relative z-10">
         {/* Header */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-12 md:mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -106,7 +114,7 @@ export default function Certifications() {
         </div>
 
         {/* AI Vault Section */}
-        <div className="mb-24">
+        <div className="mb-12 md:mb-24">
           <motion.h3 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -125,7 +133,7 @@ export default function Certifications() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="glass p-8 rounded-3xl border border-white/10 hover:border-primary/40 transition-all duration-300 group relative overflow-hidden flex flex-col h-full"
+                className="glass p-6 md:p-8 rounded-3xl border border-white/10 hover:border-primary/40 transition-all duration-300 group relative overflow-hidden flex flex-col h-full"
               >
                 {/* Holographic Glow */}
                 <div className="absolute -inset-[100%] bg-gradient-to-r from-transparent via-white/5 to-transparent rotate-45 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
@@ -135,7 +143,14 @@ export default function Certifications() {
 
                 <div className="mb-6 relative z-10">
                   <div className="text-xs font-mono text-primary mb-3 uppercase tracking-wider">{cert.category}</div>
-                  <h4 className="text-xl font-bold text-white mb-2 leading-snug group-hover:text-primary transition-colors">{cert.title}</h4>
+                  <div className="flex items-start justify-between gap-4 mb-2">
+                    <h4 className="text-xl font-bold text-white leading-snug group-hover:text-primary transition-colors">{cert.title}</h4>
+                    {cert.link && (
+                      <a href={cert.link} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-primary transition-colors shrink-0 p-1">
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    )}
+                  </div>
                   <div className="text-sm font-medium text-gray-400">{cert.org}</div>
                 </div>
                 

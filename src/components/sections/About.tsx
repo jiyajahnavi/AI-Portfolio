@@ -15,7 +15,7 @@ export default function About() {
   const opacityFade = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={containerRef} className="py-32 px-4 md:px-6 w-full min-h-screen relative overflow-hidden bg-midnight">
+    <section ref={containerRef} className="py-20 md:py-32 px-4 md:px-6 w-full min-h-screen relative overflow-hidden bg-midnight">
       
       {/* Immersive Holographic Environment */}
       <motion.div 
@@ -30,7 +30,7 @@ export default function About() {
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Header */}
-        <div className="mb-32 text-center">
+        <div className="mb-20 md:mb-32 text-center">
           <motion.div
             initial={{ opacity: 0, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, filter: "blur(0px)" }}
@@ -49,7 +49,7 @@ export default function About() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass p-10 md:p-16 rounded-[3rem] border border-white/10 relative overflow-hidden mb-32 group"
+          className="glass p-6 md:p-10 lg:p-16 rounded-[3rem] border border-white/10 relative overflow-hidden mb-20 md:mb-32 group"
         >
           <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-50" />
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
@@ -100,7 +100,7 @@ export default function About() {
   
 
         {/* Section 3: Multidimensional Mindset (Strategy & Art) */}
-        <div className="mb-32 relative">
+        <div className="mb-20 md:mb-32 relative">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHJlY3Qgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDMpIi8+PHJlY3QgeD0iMjAiIHk9IjIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')] opacity-50 z-0 mask-image:radial-gradient(circle,black,transparent)" />
           
           

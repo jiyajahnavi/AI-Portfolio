@@ -66,7 +66,7 @@ export default function Skills() {
   const [activeDomain, setActiveDomain] = useState<string | null>(null);
 
   return (
-    <section className="py-20 md:py-24 w-full relative overflow-hidden bg-midnight flex flex-col items-center">
+    <section className="py-16 md:py-24 w-full relative overflow-hidden bg-midnight flex flex-col items-center">
       
       {/* Immersive Holographic Background */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -118,7 +118,7 @@ export default function Skills() {
           className="relative z-30 mb-20 md:mb-32 group"
         >
           <div className="absolute inset-0 bg-primary/20 blur-[50px] rounded-full group-hover:bg-primary/40 transition-all duration-700" />
-          <div className="glass p-10 md:p-16 rounded-full border-2 border-primary/50 flex flex-col items-center justify-center relative bg-midnight/80 backdrop-blur-xl shadow-[0_0_50px_rgba(245,230,211,0.2)] group-hover:shadow-[0_0_80px_rgba(245,230,211,0.4)] transition-all duration-500 hover:scale-105 cursor-default">
+          <div className="glass p-8 md:p-10 lg:p-16 rounded-full border-2 border-primary/50 flex flex-col items-center justify-center relative bg-midnight/80 backdrop-blur-xl shadow-[0_0_50px_rgba(245,230,211,0.2)] group-hover:shadow-[0_0_80px_rgba(245,230,211,0.4)] transition-all duration-500 hover:scale-105 cursor-default">
             <Network className="w-12 h-12 text-primary mb-4 animate-pulse" />
             <h3 className="text-2xl md:text-3xl font-bold text-white text-center leading-tight">
               Skills <br/><span className="text-primary font-light"></span>

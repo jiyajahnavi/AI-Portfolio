@@ -55,7 +55,7 @@ export default function Contact() {
   ];
 
   return (
-    <section className="py-32 px-4 md:px-6 w-full min-h-screen relative overflow-hidden bg-midnight flex flex-col justify-center">
+    <section className="py-20 md:py-32 px-4 md:px-6 w-full min-h-screen relative overflow-hidden bg-midnight flex flex-col justify-center">
       
       {/* Background Ambience */}
       <div className="absolute inset-0 pointer-events-none z-0">
@@ -66,7 +66,7 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto w-full relative z-10">
         
         {/* Header */}
-        <div className="mb-20 text-center">
+        <div className="mb-12 md:mb-20 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-3 glass p-10 md:p-16 rounded-[3rem] border border-white/10 hover:border-primary/30 transition-all duration-500 relative overflow-hidden group flex flex-col justify-center"
+            className="lg:col-span-3 glass p-6 md:p-10 lg:p-16 rounded-[3rem] border border-white/10 hover:border-primary/30 transition-all duration-500 relative overflow-hidden group flex flex-col justify-center"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             
@@ -108,7 +108,7 @@ export default function Contact() {
               
               <a 
                 href="mailto:jiyajahnavi01@gmail.com"
-                className="w-full sm:w-auto px-8 py-5 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 flex items-center justify-between gap-6 group/btn"
+                className="w-full sm:w-auto px-5 py-4 md:px-8 md:py-5 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 flex items-center justify-between gap-6 group/btn"
               >
                 <div className="flex flex-col">
                   <span className="text-xs font-mono text-primary uppercase tracking-widest mb-1">Email Address</span>

@@ -1,14 +1,18 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import { Briefcase, Network, Database, LayoutTemplate, GitMerge, BrainCircuit, LineChart, Code2, Users, Rocket } from "lucide-react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const EXPERIENCE = [
   {
     role: "AI Intern",
     company: "Infosys",
-    duration: "June - July",
+    duration: "June'26 - July'26",
     category: "AI Engineering ",
     icon: <Network className="w-8 h-8 text-primary" />,
     description: "Hands-on exposure to enterprise-level AI workflows, scalable engineering environments, and practical AI system integration.",
@@ -25,7 +29,7 @@ const EXPERIENCE = [
   {
     role: "Machine Learning Intern",
     company: "RYM Grenergy Pvt Ltd",
-    duration: "April – May",
+    duration: "April'26 - May'26",
     category: "Machine Learning ",
     icon: <LineChart className="w-8 h-8 text-secondary" />,
     description: "Working on machine learning-driven systems, data-focused workflows, and analytical engineering approaches.",
@@ -39,24 +43,7 @@ const EXPERIENCE = [
     ],
     tech: ["Python", "Machine Learning", "Data Analysis", "Predictive Systems"]
   },
-  {
-    role: "Freelance",
-    company: "Web & App Developer",
-    duration: "Project Based",
-    category: "Product Development / Full Stack Engineering",
-    icon: <LayoutTemplate className="w-8 h-8 text-primary" />,
-    description: "Built a scalable multi-role digital infrastructure platform designed to streamline academic management and intelligent workflow automation.",
-    highlights: [
-      "Full-stack architecture",
-      "Scalable design",
-      "Real-world deployment",
-      "Responsive UI systems",
-      "Intelligent workflow integration",
-      "Multi-user system design"
-    ],
-    tech: ["React", "Next.js", "Tailwind CSS", "FastAPI", "Databases", "APIs"],
-    panels: ["Super Admin", "Admin", "Teacher", "Student"]
-  },
+
   {
     role: "Open Source Contributor",
     company: "GirlScript Summer of Code (GSSOC) 2025",
@@ -78,16 +65,37 @@ const EXPERIENCE = [
 
 export default function Experience() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<HTMLDivElement>(null);
+  
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
 
-  const pathLength = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
   const yOffset = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
+  useEffect(() => {
+    if (!containerRef.current || !timelineRef.current) return;
+
+    // Timeline line animation
+    gsap.fromTo(
+      ".exp-timeline-line",
+      { scaleY: 0 },
+      {
+        scaleY: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: timelineRef.current,
+          start: "top center",
+          end: "bottom center",
+          scrub: 1,
+        }
+      }
+    );
+  }, []);
+
   return (
-    <section ref={containerRef} className="py-32 px-4 md:px-6 w-full min-h-screen relative overflow-hidden bg-midnight">
+    <section ref={containerRef} className="py-20 md:py-32 px-4 md:px-6 w-full min-h-screen relative overflow-hidden bg-midnight">
       
       {/* Cinematic Animated Background */}
       <motion.div style={{ y: yOffset }} className="absolute inset-0 pointer-events-none z-0">
@@ -99,7 +107,7 @@ export default function Experience() {
       <div className="max-w-6xl mx-auto relative z-10">
         
         {/* Header */}
-        <div className="mb-40 text-center relative">
+        <div className="mb-20 md:mb-40 text-center relative">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent blur-3xl -z-10" />
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -119,17 +127,12 @@ export default function Experience() {
         </div>
 
         {/* Vertical Engineering Timeline */}
-        <div className="relative mb-40">
+        <div className="relative mb-20 md:mb-40">
           
-          {/* Animated Connecting Timeline */}
-          <div className="absolute left-[39px] md:left-[50px] top-10 bottom-10 w-1 bg-white/5 rounded-full overflow-hidden hidden md:block">
-            <motion.div 
-              className="w-full bg-gradient-to-b from-primary via-secondary to-primary h-full origin-top"
-              style={{ scaleY: pathLength }}
-            />
-          </div>
+          <div ref={timelineRef} className="relative pl-8 md:pl-16 border-l border-white/5 space-y-16 md:space-y-32">
+            {/* Animated Connecting Timeline */}
+            <div className="exp-timeline-line absolute left-0 top-0 bottom-0 w-[1px] bg-gradient-to-b from-primary via-secondary to-transparent origin-top z-0" />
 
-          <div className="space-y-32">
             {EXPERIENCE.map((exp, idx) => (
               <motion.div
                 key={exp.role + exp.company}
@@ -137,16 +140,13 @@ export default function Experience() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8 }}
-                className="relative group flex flex-col md:flex-row gap-8 md:gap-16 items-start"
+                className="relative group z-10"
               >
-                {/* Node Icon */}
-                <div className="relative z-10 p-5 rounded-2xl bg-midnight border border-white/10 group-hover:border-primary/50 transition-colors shadow-[0_0_30px_rgba(0,0,0,0.5)] shrink-0">
-                  <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity" />
-                  {exp.icon}
-                </div>
+                {/* Timeline Node */}
+                <div className="absolute -left-[41px] md:-left-[73px] top-12 w-5 h-5 rounded-full bg-midnight border-2 border-primary group-hover:bg-primary group-hover:shadow-[0_0_15px_rgba(245,230,211,0.5)] transition-all duration-300 hidden md:block" />
 
                 {/* Content Panel */}
-                <div className="flex-1 glass p-8 md:p-12 rounded-[2rem] border border-white/10 group-hover:border-white/20 transition-all duration-500 relative overflow-hidden w-full">
+                <div className="flex-1 glass p-6 md:p-8 lg:p-12 rounded-[2rem] border border-white/10 group-hover:border-white/20 transition-all duration-500 relative overflow-hidden w-full">
                   
                   {/* Holographic Overlays */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
@@ -156,18 +156,25 @@ export default function Experience() {
                     
                     {/* Left Info Column */}
                     <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-4 mb-4">
-                        <span className="text-xs font-mono text-primary uppercase tracking-widest px-3 py-1 bg-primary/10 border border-primary/20 rounded-full">
-                          {exp.category}
-                        </span>
-                        <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">
-                          {exp.duration}
-                        </span>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8">
+                        <div className="p-4 rounded-2xl bg-midnight/50 border border-white/10 group-hover:border-primary/30 transition-colors shrink-0">
+                          {exp.icon}
+                        </div>
+                        <div>
+                          <div className="flex flex-wrap items-center gap-4 mb-2">
+                            <span className="text-xs font-mono text-primary uppercase tracking-widest px-3 py-1 bg-primary/10 border border-primary/20 rounded-full">
+                              {exp.category}
+                            </span>
+                            <span className="text-xs font-mono text-gray-500 uppercase tracking-widest">
+                              {exp.duration}
+                            </span>
+                          </div>
+                          <h3 className="text-3xl md:text-4xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-secondary transition-all duration-300">
+                            {exp.role}
+                          </h3>
+                        </div>
                       </div>
                       
-                      <h3 className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-secondary transition-all duration-300">
-                        {exp.role}
-                      </h3>
                       <h4 className="text-xl text-gray-300 mb-6 font-medium">@ {exp.company}</h4>
                       
                       <p className="text-gray-400 text-lg leading-relaxed mb-8 border-l-2 border-white/10 pl-4">
